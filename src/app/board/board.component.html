@@ -1,0 +1,7 @@
+<h1 class="fire">X O GAME</h1>
+<app-board-row
+  *ngFor="let row of board; let i = index"
+  [row]="row"
+  [rowIndex]="i"
+  (cellClicked)="cellClickedHandler($event)"
+></app-board-row>

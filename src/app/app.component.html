@@ -1,0 +1,12 @@
+<app-board
+  [boardSize]="boardSize"
+  (errorMessage)="handleMessage($event)"
+  (winningMessage)="handleMessage($event)"
+  [restartObservable]="resetSubject"
+></app-board>
+<br>
+
+<button class="myButton"
+  (click)="resetClick()"
+>reset</button>
+

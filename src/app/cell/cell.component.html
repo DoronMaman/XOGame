@@ -1,0 +1,8 @@
+
+<div [ngSwitch]="state"
+     [ngClass]="{'borderWinner':highlight,'enjoy-css':true }"
+    >
+  <div *ngSwitchCase="cellStateType.X">X</div>
+  <div *ngSwitchCase="cellStateType.O">O</div>
+  <div *ngSwitchCase="cellStateType.Clear">-</div>
+</div>

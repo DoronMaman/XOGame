@@ -1,0 +1,61 @@
+appComponent:
+	+ boardComponent
+	+ restart button
+	+ messages modal
+
+CellState is Enum:
+	* X
+	* O
+	* Clear
+	
+	
+CellModel:
+	+ state: CellState
+	
+	
+BoardComponent:
+	input:
+	============
+	+ boardSize: number
+	+ restartObservable: Observable<boolean>
+	
+	output:
+	============
+	+ errorMessage: EventEmitter<string>
+	+ winningMessage: EventEmitter<WinnerModel>
+	
+	inner:
+	============
+	+ board: CellModel[][]
+	+ currentPlayer: CellState
+	
+BoardRowComponent:
+	input:
+	============
+	+ row: CellModel[]
+	+ rowIndex: number
+
+	output:
+	============
+	+ cellClicked: EventEmitter<Pair<number, number>>
+	
+CellComponent:
+	input:
+	============
+	+ cellModel: cellModel
+	+ highlight: boolean
+	
+	output:
+	============
+	
+	inner:
+	============
+
+WinnerModel
+	+ winningStrike: Pair[]
+	+ winnerIdentity: CellState
+
+boardCheckService
+		// the state array must be of dimension n*n
+		// will return WinnerModel object if there is a win, or null if there is no win so far
+	+ checkStateForWinner(state: CellModel[][]): WinnerModel
